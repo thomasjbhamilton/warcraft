@@ -1,11 +1,6 @@
-# http://classic.battle.net/war3/human/units/footman.shtml
+class SiegeEngine < Unit
 
-
-
-class Footman < Unit
-  attr_accessor :health_points, :attack_power
-
-  def initialize(health_points=60, attack_power=10)
+  def initialize(health_points=400, attack_power=40)
     @health_points = health_points
     @attack_power = attack_power
   end
@@ -15,8 +10,10 @@ class Footman < Unit
       nil
     else
       if enemy.is_a? Barracks
-        attack_power = (@attack_power / 2).ceil
+        attack_power = (@attack_power * 2).ceil
         enemy.damage(attack_power)
+      elsif enemy.is_a? Footman || Peasant
+        nil
       else
         enemy.damage(@attack_power)
       end

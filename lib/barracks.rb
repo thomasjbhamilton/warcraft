@@ -9,11 +9,7 @@ class Barracks
   end
 
   def can_train_footman?
-    if self.gold > 135 && self.food >= 2
-      true
-    else
-      false
-    end
+    self.gold > 135 && self.food >= 2
   end
 
   def train_footman
@@ -27,11 +23,7 @@ class Barracks
   end
 
   def can_train_peasant?
-    if self.gold > 90  && self.food >= 5
-      true
-    else
-      false
-    end
+   self.gold > 90  && self.food >= 5
   end
 
   def train_peasant
@@ -56,11 +48,7 @@ class Barracks
 
 
   def can_build_seigeengine?
-    if self.gold > 200  && self.food >= 3 && self.lumber >= 60
-      true
-    else
-      false
-    end
+    self.gold > 200  && self.food >= 3 && self.lumber >= 60
   end
 
   def build_siegeengine
@@ -72,7 +60,6 @@ class Barracks
     else
       nil
     end
-
   end
 
   def damage(attack_power)

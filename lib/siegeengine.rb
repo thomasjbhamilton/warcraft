@@ -1,5 +1,4 @@
 class SiegeEngine < Unit
-
   def initialize(health_points=400, attack_power=40)
     @health_points = health_points
     @attack_power = attack_power

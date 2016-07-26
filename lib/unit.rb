@@ -1,14 +1,14 @@
 class Unit
-  attr_accessor :health_points, :attack_power
+  attr_reader :health_points, :attack_power
 
   def initialize(health_points, attack_power)
     @health_points = health_points
     @attack_power = attack_power
+    @num = 1
   end
 
   def attack!(enemy)
-      dead? ? enemy.damage(@attack_power) : nil
-      self.dead? if @health_points == 0
+    dead? ? nil : enemy.damage(@attack_power)
   end
 
   def damage(attack_power)
@@ -16,10 +16,6 @@ class Unit
   end
 
   def dead?
-    if self.health_points >= 1
-      false
-    else
-      true
-    end
+    !(self.health_points >= 1)
   end
 end
